@@ -4386,9 +4386,9 @@ static inline bool spf_pgd_flunked(pgd_t *pgd)
 
 static inline bool spf_p4d_flunked(p4d_t *p4d)
 {
-	p4d_t p4dval;
+	/* p4d_t p4dval; */
 
-	p4dval = READ_ONCE(*p4d);
+	/* p4dval = READ_ONCE(*p4d); */
 	if (p4d_none(p4dval) || unlikely(p4d_bad(p4dval)))
 		return true;
 
