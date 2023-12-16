@@ -96,7 +96,7 @@ void mtk_afe_debug_write_reg(struct file *file, void *arg)
 
 	if ((token1 != NULL) && (token2 != NULL)) {
 		/* ret = kstrtoul(token1, 16, &reg_addr);
-		ret = kstrtoul(token2, 16, &reg_value); *;
+		ret = kstrtoul(token2, 16, &reg_value); */
 		kstrtoul(token1, 16, &reg_addr);
 		kstrtoul(token2, 16, &reg_value);
 		dev_info(afe->dev, "%s(), reg_addr 0x%lx, reg_value 0x%lx\n",
