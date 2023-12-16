@@ -310,13 +310,13 @@ void mtk_vdec_emi_bw_begin(struct mtk_vcodec_ctx *ctx)
 	/* long emi_bw_input = 0; */
 	/* long emi_bw_output = 0; */
 
-	if (vdec_freq_step_size > 1)
-		b_freq_idx = vdec_freq_step_size - 1;
+	/* if (vdec_freq_step_size > 1)
+		b_freq_idx = vdec_freq_step_size - 1; */
 
 	emi_bw = 8L * 1920 * 1080 * 3 * 10 * vdec_freq;
-	emi_bw_input = 8 * vdec_freq / STD_VDEC_FREQ;
+	/* emi_bw_input = 8 * vdec_freq / STD_VDEC_FREQ;
 	emi_bw_output = 1920 * 1088 * 3 * 30 * 10 * vdec_freq /
-			2 / 3 / STD_VDEC_FREQ / 1024 / 1024;
+			2 / 3 / STD_VDEC_FREQ / 1024 / 1024; */
 
 	switch (ctx->q_data[MTK_Q_DATA_SRC].fmt->fourcc) {
 	case V4L2_PIX_FMT_H264:
