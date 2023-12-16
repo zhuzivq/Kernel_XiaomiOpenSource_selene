@@ -468,11 +468,17 @@ void check_cm_mgr_status_internal(void)
 
 #ifdef USE_NEW_CPU_OPP
 #ifdef USE_SINGLE_CLUSTER
-		ret = cm_mgr_check_stall_ratio(
+		/* ret = cm_mgr_check_stall_ratio(
+				prev_freq[0] / 1000,
+				0); */
+		cm_mgr_check_stall_ratio(
 				prev_freq[0] / 1000,
 				0);
 #else
-		ret = cm_mgr_check_stall_ratio(
+		/* ret = cm_mgr_check_stall_ratio(
+				prev_freq[0] / 1000,
+				prev_freq[1] / 1000); */
+		cm_mgr_check_stall_ratio(
 				prev_freq[0] / 1000,
 				prev_freq[1] / 1000);
 #endif /* USE_SINGLE_CLUSTER */
@@ -480,27 +486,39 @@ void check_cm_mgr_status_internal(void)
 #ifdef CONFIG_MTK_CPU_FREQ
 #ifdef USE_AVG_PMU
 #ifdef USE_SINGLE_CLUSTER
-		ret = cm_mgr_check_stall_ratio(
+		/* ret = cm_mgr_check_stall_ratio(
+				mt_cpufreq_get_cur_phy_freq_no_lock(0) / 1000,
+				0); */
+		cm_mgr_check_stall_ratio(
 				mt_cpufreq_get_cur_phy_freq_no_lock(0) / 1000,
 				0);
 #else
-		ret = cm_mgr_check_stall_ratio(
+		/* ret = cm_mgr_check_stall_ratio(
+				mt_cpufreq_get_cur_phy_freq_no_lock(0) / 1000,
+				mt_cpufreq_get_cur_phy_freq_no_lock(1) / 1000); */
+		cm_mgr_check_stall_ratio(
 				mt_cpufreq_get_cur_phy_freq_no_lock(0) / 1000,
 				mt_cpufreq_get_cur_phy_freq_no_lock(1) / 1000);
 #endif /* USE_SINGLE_CLUSTER */
 #else
 #ifdef USE_SINGLE_CLUSTER
-		ret = cm_mgr_check_stall_ratio(
+		/* ret = cm_mgr_check_stall_ratio(
+				mt_cpufreq_get_cur_freq(0) / 1000,
+				0); */
+		cm_mgr_check_stall_ratio(
 				mt_cpufreq_get_cur_freq(0) / 1000,
 				0);
 #else
-		ret = cm_mgr_check_stall_ratio(
+		/* ret = cm_mgr_check_stall_ratio(
+				mt_cpufreq_get_cur_freq(0) / 1000,
+				mt_cpufreq_get_cur_freq(1) / 1000); */
+		cm_mgr_check_stall_ratio(
 				mt_cpufreq_get_cur_freq(0) / 1000,
 				mt_cpufreq_get_cur_freq(1) / 1000);
 #endif /* USE_SINGLE_CLUSTER */
 #endif /* USE_AVG_PMU */
 #else
-		ret = 0;
+		/* ret = 0; */
 #endif /* CONFIG_MTK_CPU_FREQ */
 #endif /* USE_NEW_CPU_OPP */
 		total_bw = cm_mgr_get_bw() / 512;
