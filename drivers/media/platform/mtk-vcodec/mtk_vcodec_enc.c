@@ -2687,9 +2687,12 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 16;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
-	ctrl = v4l2_ctrl_new_custom(&ctx->ctrl_hdl,
+	/* ctrl = v4l2_ctrl_new_custom(&ctx->ctrl_hdl,
+		&mtk_enc_color_desc_ctrl, NULL); */
+	v4l2_ctrl_new_custom(&ctx->ctrl_hdl,
 		&mtk_enc_color_desc_ctrl, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
@@ -2702,7 +2705,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 16;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_MAX_HEIGHT;
@@ -2714,7 +2718,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 16;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	/* g_volatile_ctrl */
 	memset(&cfg, 0, sizeof(cfg));
@@ -2728,7 +2733,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_RESOLUTION_CHANGE;
@@ -2742,7 +2748,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.def = 0;
 	cfg.ops = ops;
 	cfg.dims[0] = sizeof(struct venc_resolution_change)/sizeof(u32);
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_VIDEO_ENABLE_TSVC;
@@ -2754,7 +2761,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 	if (handler->error) {
 		mtk_v4l2_err("Init control handler fail %d",
 			     handler->error);
