@@ -2170,7 +2170,8 @@ static void mtk_venc_worker(struct work_struct *work)
 	struct venc_frm_buf *pfrm_buf;
 	struct mtk_vcodec_mem *pbs_buf;
 	struct venc_done_result enc_result;
-	int ret, i, length;
+	/* int ret, i, length; */
+	int ret, i;
 	struct vb2_v4l2_buffer *dst_vb2_v4l2, *src_vb2_v4l2, *pend_src_vb2_v4l2;
 	struct mtk_video_enc_buf *dst_buf_info, *src_buf_info;
 
@@ -2326,7 +2327,8 @@ static void mtk_venc_worker(struct work_struct *work)
 	}
 	pfrm_buf->num_planes = src_buf->num_planes;
 	pfrm_buf->timestamp = src_vb2_v4l2->vb2_buf.timestamp;
-	length = q_data_src->coded_width * q_data_src->coded_height;
+	/* length = q_data_src->coded_width * q_data_src->coded_height; */
+	q_data_src->coded_width * q_data_src->coded_height;
 
 	mtk_v4l2_debug(2,
 			"Framebuf VA=%p PA=%llx Size=0x%zx Offset=%d;VA=%p PA=0x%llx Size=0x%zx Offset=%d;VA=%p PA=0x%llx Size=%zu Offset=%d",
@@ -2512,7 +2514,7 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	const struct v4l2_ctrl_ops *ops = &mtk_vcodec_enc_ctrl_ops;
 	struct v4l2_ctrl_handler *handler = &ctx->ctrl_hdl;
 	struct v4l2_ctrl_config cfg;
-	struct v4l2_ctrl *ctrl;
+	/* struct v4l2_ctrl *ctrl; */
 
 	v4l2_ctrl_handler_init(handler, MTK_MAX_CTRLS_HINT);
 
@@ -2581,7 +2583,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_NONREFP;
@@ -2593,7 +2596,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_NONREFP_FREQ;
@@ -2605,7 +2609,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_DETECTED_FRAMERATE;
@@ -2617,7 +2622,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_RFS_ON;
@@ -2629,7 +2635,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_VIDEO_PREPEND_SPSPPS_TO_IDR;
@@ -2641,7 +2648,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_OPERATION_RATE;
@@ -2653,7 +2661,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_ROI_ON;
@@ -2665,7 +2674,8 @@ int mtk_vcodec_enc_ctrls_setup(struct mtk_vcodec_ctx *ctx)
 	cfg.step = 1;
 	cfg.def = 0;
 	cfg.ops = ops;
-	ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL);
+	/* ctrl = v4l2_ctrl_new_custom(handler, &cfg, NULL); */
+	v4l2_ctrl_new_custom(handler, &cfg, NULL);
 
 	memset(&cfg, 0, sizeof(cfg));
 	cfg.id = V4L2_CID_MPEG_MTK_ENCODE_GRID_SIZE;
