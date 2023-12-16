@@ -262,7 +262,8 @@ static void kpd_keymap_handler(unsigned long data)
 		}
 	}
 
-	dest = memcpy(kpd_keymap_state, new_state, sizeof(new_state));
+	/* dest = memcpy(kpd_keymap_state, new_state, sizeof(new_state)); */
+	memcpy(kpd_keymap_state, new_state, sizeof(new_state));
 	enable_irq(kp_irqnr);
 }
 
