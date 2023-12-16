@@ -112,9 +112,10 @@ static DRIVER_ATTR_RW(kpd_call_state);
 static ssize_t kpd_long_press_is_reboot_store(struct device_driver *ddri,
 		const char *buf, size_t count)
 {
-	int ret;
+	/* int ret; */
 
-	ret = kstrtoul(buf, 10, &long_press_is_reboot);
+	/* ret = kstrtoul(buf, 10, &long_press_is_reboot); */
+	kstrtoul(buf, 10, &long_press_is_reboot);
 
 	long_press_reboot(long_press_is_reboot);
 
@@ -207,7 +208,7 @@ static void kpd_keymap_handler(unsigned long data)
 	int32_t pressed;
 	u16 new_state[KPD_NUM_MEMS], change, mask;
 	u16 hw_keycode, linux_keycode;
-	void *dest;
+	/* void *dest; */
 
 	kpd_get_keymap_state(new_state);
 #ifdef CONFIG_PM_SLEEP
